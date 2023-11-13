@@ -6,6 +6,8 @@ const box = document.querySelector(".box");
 const title = document.querySelector(".title");
 const all_box = document.querySelectorAll(".sm");
 
+let swi = false;
+
 const Create_box = () => {
   for (let i = 1; i <= 9; i++) {
     const all_box = document.querySelectorAll(".sm");
@@ -15,24 +17,24 @@ const Create_box = () => {
     box.append(dv);
 
     dv.addEventListener("click", (e) => {
-      Games(e, dv, all_box);
-    });
-    dv.addEventListener("click", (e) => {
-      win(e, dv, all_box);
+      if (!swi) {
+        Games(e, dv, all_box);
+        win(e, dv, all_box);
+      }
     });
   }
 };
 Create_box();
 
 let bom = "x";
+let close = true;
 const Games = (e, dv) => {
   const all_box = document.querySelectorAll(".sm");
-  // console.log("jamal");
-  // console.log(all_box);
-  // console.log(e.target.innerHTML);
+
   if (bom === "x" && e.target.innerHTML === "") {
     bom = "o";
     title.innerHTML = "o";
+
     e.target.innerHTML = "x";
   } else if (bom === "o" && e.target.innerHTML === "") {
     bom = "x";
@@ -43,91 +45,108 @@ const Games = (e, dv) => {
 
 const win = (e, dv) => {
   const all_box = document.querySelectorAll(".sm");
-  // console.log(all_box);
-  // const arr = [
-  //   [0, 1, 2],
-  //   [3, 4, 5],
-  //   [6, 7, 8],
-  // ];
+  // console.log(all_box[0].innerHTML);
 
-  // for (let i = 0; i <= arr.length; i++) {
+  const arr = [
+    [0, 1, 2], //  0 0 // 1 1 // 2 2
+    [3, 4, 5], // 0 2 // 1 1 // 2 0
+    [6, 7, 8],
+  ];
 
-  //   let bxCol_1 = all_box[arr[0][i]].innerHTML;
-  //   let bxCol_2 = all_box[arr[1][i]].innerHTML;
-  //   let bxCol_3 = all_box[arr[2][i]].innerHTML;
+  for (let i = 0; i < arr.length; i++) {
+    let row1 = all_box[arr[i][0]].innerHTML;
+    let row2 = all_box[arr[i][1]].innerHTML;
+    let row3 = all_box[arr[i][2]].innerHTML;
 
-  //  if(bxCol_1===bxCol_2&& bxCol_2 ===bxCol_3 && bxCol_1 !== ""){
+    let col_1 = all_box[arr[0][i]].innerHTML;
+    let col_2 = all_box[arr[1][i]].innerHTML;
+    let col_3 = all_box[arr[2][i]].innerHTML;
 
-  //   title.innerHTML = `${bxCol_1}  He won`
+    let x_1 = all_box[arr[0][0]].innerHTML;
+    let x_2 = all_box[arr[1][1]].innerHTML;
+    let x_3 = all_box[arr[2][2]].innerHTML;
 
-  //  }
+    let x_4 = all_box[arr[0][2]].innerHTML;
+    let x_5 = all_box[arr[1][1]].innerHTML;
+    let x_6 = all_box[arr[2][0]].innerHTML;
+    if (col_1 === col_2 && col_2 === col_3 && col_1 !== "") {
+      title.innerHTML = `${col_1} : He Won `;
+      end(col_1, col_2, col_3, dv);
+    }
 
-  // }
+    if (row1 === row2 && row2 === row3 && row1 !== "") {
+      title.innerHTML = `${row1} : He Won `;
+      end(row1, row2, row3, dv);
+    }
+    if (x_1 === x_2 && x_2 === x_3 && x_1 !== "") {
+      title.innerHTML = `${x_1} : He Won `;
+      end(x_1, x_2, x_3, dv);
+      break;
+    }
+    if (x_4 === x_5 && x_5 === x_6 && x_4 !== "") {
+      title.innerHTML = `${x_4} : He WOn `;
 
-  if (
-    B_1.innerHTML === B_2.innerHTML &&
-    B_2.innerHTML === B_3.innerHTML &&
-    B_2.innerHTML !== ""
-  ) {
-    title.innerText = ` ${B_1.innerHTML}  : He won`;
-  }
-  if (
-    B_4.innerHTML === B_5.innerHTML &&
-    B_5.innerHTML === B_6.innerHTML &&
-    B_6.innerHTML !== ""
-  ) {
-    title.innerText = ` ${B_5.innerHTML}  : He won`;
-  }
-  if (
-    B_7.innerHTML === B_8.innerHTML &&
-    B_8.innerHTML === B_9.innerHTML &&
-    B_7.innerHTML !== ""
-  ) {
-    title.innerText = ` ${B_7.innerHTML}  : He won`;
-  }
-  if (
-    B_1.innerHTML === B_4.innerHTML &&
-    B_4.innerHTML === B_7.innerHTML &&
-    B_1.innerHTML !== ""
-  ) {
-    title.innerText = ` ${B_1.innerHTML}  : He won`;
-  }
-  if (
-    B_2.innerHTML === B_5.innerHTML &&
-    B_5.innerHTML === B_8.innerHTML &&
-    B_2.innerHTML !== ""
-  ) {
-    title.innerText = ` ${B_2.innerHTML}  : He won`;
-  }
-  if (
-    B_3.innerHTML === B_6.innerHTML &&
-    B_6.innerHTML === B_9.innerHTML &&
-    B_3.innerHTML !== ""
-  ) {
-    title.innerText = ` ${B_6.innerHTML}  : He won`;
-  }
-  if (
-    B_1.innerHTML === B_5.innerHTML &&
-    B_5.innerHTML === B_9.innerHTML &&
-    B_1.innerHTML !== ""
-  ) {
-    title.innerText = ` ${B_5.innerHTML}  : He won`;
-  }
-  if (
-    B_3.innerHTML === B_5.innerHTML &&
-    B_5.innerHTML === B_7.innerHTML &&
-    B_5.innerHTML !== ""
-  ) {
-    title.innerText = ` ${B_5.innerHTML}  : He won`;
+      end(x_4, x_5, x_6, dv);
+      break;
+    }
+    if (
+      row1 !== "" &&
+      row2 !== "" &&
+      row3 !== "" &&
+      col_1 !== "" &&
+      col_2 !== "" &&
+      col_3 !== "" &&
+      x_1 !== "" &&
+      x_2 !== "" &&
+      x_3 !== "" &&
+      x_4 !== "" &&
+      x_5 !== "" &&
+      x_6 !== ""
+    ) {
+      title.innerHTML = `Draw`;
+      swi = false;
+      all_box.forEach((e) => {
+        setTimeout(() => {
+          title.innerHTML = "X O Games";
+          e.innerHTML = "";
+        }, 1000);
+      });
+    }
   }
 };
 
-const B_1 = document.querySelector(".z1");
-const B_2 = document.querySelector(".z2");
-const B_3 = document.querySelector(".z3");
-const B_4 = document.querySelector(".z4");
-const B_5 = document.querySelector(".z5");
-const B_6 = document.querySelector(".z6");
-const B_7 = document.querySelector(".z7");
-const B_8 = document.querySelector(".z8");
-const B_9 = document.querySelector(".z9");
+const end = (box1, box2, box3, dv) => {
+  swi = true;
+  const all_box = document.querySelectorAll(".sm");
+  all_box.forEach(function (e) {
+    setTimeout(() => {
+      title.innerHTML = "X O Games";
+      e.innerHTML = "";
+      swi = false;
+    }, 1500);
+  });
+  debugger;
+  let O_ = document.querySelector(".o_");
+  let X_ = document.querySelector(".x_");
+  if (box1 === "x") {
+    X_.innerHTML += " :)";
+  }
+  if (box1 === "o") {
+    O_.innerHTML += " :)";
+  }
+  if (X_.innerHTML === "= :) :) :)") {
+    setTimeout(() => {
+      O_.innerHTML = "=";
+      X_.innerHTML = "=";
+      title.innerHTML = `X O Games`;
+    }, 1500);
+  }
+
+  if (O_.innerHTML === "= :) :) :)") {
+    setTimeout(() => {
+      X_.innerHTML = "=";
+      O_.innerHTML = "=";
+      title.innerHTML = `X O Games`;
+    }, 2000);
+  }
+};
