@@ -1,86 +1,48 @@
-body {
-  background-color: #232323;
-  height: 100vh;
+.box {
+  width: 50vh;
+  height: 50vh;
+  background-color: rgb(224, 219, 219);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  font-family: "Courier New", Courier, monospace;
 }
-
-.Games {
-  height: 100vh;
+.body-box {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: "Courier New", Courier, monospace;
+  height: 100vh;
+  background-color: #252a34;
 }
-.box_Games {
-  width: 326px;
-  height: 326px;
+.title {
+  width: 50%;
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 1px;
+  font-size: 50px;
+  font-family: sans-serif;
   background-color: red;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: #232323;
+  border: 1px solid red;
+  border-radius: 12px;
+  margin: 20px;
 }
-
-.box_Games * {
-  width: 100px;
-  height: 100px;
-  background-color: rebeccapurple;
-  margin: 2px;
-  position: relative;
-  bottom: 20px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-size: 80px;
+.box * {
+  background-color: #252a34;
+  margin: 3px;
+  font-size: 140px;
+  font-family: sans-serif;
   color: red;
   text-align: center;
-}
-.box_Games *:hover {
-  background-color: black;
-}
-
-.title {
-  background-color: rebeccapurple;
-  padding: 0 50px;
-  border: 2px solid red;
-  border-radius: 10px;
-}
-button {
-  background-color: rebeccapurple;
-  padding: 0 50px;
-  border: 2px solid red;
-  border-radius: 10px;
   font-family: "Courier New", Courier, monospace;
-  font-size: 30px;
-  font-weight: bold;
-  color: black;
 }
-button:hover {
+.box *:hover {
   cursor: pointer;
-  background-color: blueviolet;
+  background-color: #020000;
 }
-
-.ss {
-  background-color: rebeccapurple;
-  padding: 5px 5px;
-  border: 2px solid red;
-  margin: 10px;
-  border-radius: 10px;
+span {
+  color: rgb(1, 3, 7);
+  font-size: 60px;
   font-family: "Courier New", Courier, monospace;
-  font-size: 15px;
-  font-weight: bold;
-}
-.aud {
-  width: 250px;
-  height: 25px;
-  border: 2px solid rgb(56, 4, 4);
-  border-radius: 20px;
-}
-.controls_audiol {
-  background-color: rebeccapurple;
-  padding: 5px 5px;
-  border: 2px solid red;
-  margin: 10px;
-  border-radius: 10px;
-  font-family: "Courier New", Courier, monospace;
-  font-size: 15px;
   font-weight: bold;
 }

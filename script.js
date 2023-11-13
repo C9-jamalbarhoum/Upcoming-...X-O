@@ -1,110 +1,133 @@
-console.log("jamal");
+// console.log(text.innerText = "x");
+
 const body = document.querySelector("body");
-
-const div_Gam = document.createElement("div");
-const Games_boxss = document.createElement("div");
-Games_boxss.classList.add("box_Games");
-
-div_Gam.classList.add("Games");
-const h_1 = document.createElement("h1");
-h_1.classList.add("title");
-
-h_1.innerHTML = "X O Games";
-div_Gam.append(h_1);
-
-body.append(div_Gam);
-div_Gam.append(Games_boxss);
-
-console.log(body);
-
-const but = document.createElement("button");
-
-but.innerHTML = "GO Play";
-div_Gam.append(but);
-
-//#############################################################################
-const audioPlay = () => {
-  const Silent = document.createElement("button");
-  Silent.innerHTML = "Silent Music";
-  Silent.classList.add("ss");
-  div_Gam.append(Silent);
-
-  let audiol = new Audio();
-
-  audiol.src = ".//alexander-nakarada-the-great-battle(chosic.com).mp3";
-  //   audiol.play();
-  audiol.controls = "controls";
-  audiol.classList.add("aud");
-
-  const controls = document.createElement("button");
-  controls.innerHTML = "Controls audiol";
-  controls.classList.add("controls_audiol");
-  div_Gam.append(controls);
-
-  Silent.addEventListener("click", () => {
-    audiol.pause();
-  });
-  let radr = 1;
-
-  controls.addEventListener("click", () => {
-    if (radr === 1) {
-      div_Gam.append(audiol);
-      radr = 2;
-      audiol.style.display = "";
-    } else {
-      radr = 1;
-      audiol.style.display = "none";
-    }
-  });
-};
-
-const createBoxing = () => {
-  for (let i = 1; i < 10; i++) {
-    const div_Box_all = document.createElement("div");
-    div_Box_all.classList.add("box" + i);
-
-    Games_boxss.append(div_Box_all);
-  }
-  but.style.display = "none";
-};
-// createElement()
-
-let togel = "x";
-audioPlay();
-createBoxing();
-but.addEventListener("click", audioPlay);
-
-but.addEventListener("click", createBoxing);
-
-const b1 = document.querySelector(".box1");
-const b2 = document.querySelector(".box2");
-const b3 = document.querySelector(".box3");
-const b4 = document.querySelector(".box4");
-const b5 = document.querySelector(".box5");
-const b6 = document.querySelector(".box6");
-const b7 = document.querySelector(".box7");
-const b8 = document.querySelector(".box8");
-const b9 = document.querySelector(".box9");
+const bg = document.querySelector(".body-box");
+const box = document.querySelector(".box");
 const title = document.querySelector(".title");
-let to = "x";
-const rendar = (e) => {
-  if (to === "x" && e.target.innerHTML === "") {
-    to = "o";
+const all_box = document.querySelectorAll(".sm");
+
+const Create_box = () => {
+  for (let i = 1; i <= 9; i++) {
+    const all_box = document.querySelectorAll(".sm");
+    let dv = document.createElement("div");
+    dv.classList.add("z" + i);
+    dv.classList.add("sm");
+    box.append(dv);
+
+    dv.addEventListener("click", (e) => {
+      Games(e, dv, all_box);
+    });
+    dv.addEventListener("click", (e) => {
+      win(e, dv, all_box);
+    });
+  }
+};
+Create_box();
+
+let bom = "x";
+const Games = (e, dv) => {
+  const all_box = document.querySelectorAll(".sm");
+  // console.log("jamal");
+  // console.log(all_box);
+  // console.log(e.target.innerHTML);
+  if (bom === "x" && e.target.innerHTML === "") {
+    bom = "o";
     title.innerHTML = "o";
-    e.target.innerHTML = "X";
-  } else if (to === "o" && e.target.innerHTML === "") {
-    to = "x";
+    e.target.innerHTML = "x";
+  } else if (bom === "o" && e.target.innerHTML === "") {
+    bom = "x";
     title.innerHTML = "x";
     e.target.innerHTML = "o";
   }
 };
 
-b1.addEventListener("click", rendar);
-b2.addEventListener("click", rendar);
-b3.addEventListener("click", rendar);
-b4.addEventListener("click", rendar);
-b5.addEventListener("click", rendar);
-b6.addEventListener("click", rendar);
-b7.addEventListener("click", rendar);
-b8.addEventListener("click", rendar);
-b9.addEventListener("click", rendar);
+const win = (e, dv) => {
+  const all_box = document.querySelectorAll(".sm");
+  // console.log(all_box);
+  // const arr = [
+  //   [0, 1, 2],
+  //   [3, 4, 5],
+  //   [6, 7, 8],
+  // ];
+
+  // for (let i = 0; i <= arr.length; i++) {
+
+  //   let bxCol_1 = all_box[arr[0][i]].innerHTML;
+  //   let bxCol_2 = all_box[arr[1][i]].innerHTML;
+  //   let bxCol_3 = all_box[arr[2][i]].innerHTML;
+
+  //  if(bxCol_1===bxCol_2&& bxCol_2 ===bxCol_3 && bxCol_1 !== ""){
+
+  //   title.innerHTML = `${bxCol_1}  He won`
+
+  //  }
+
+  // }
+
+  if (
+    B_1.innerHTML === B_2.innerHTML &&
+    B_2.innerHTML === B_3.innerHTML &&
+    B_2.innerHTML !== ""
+  ) {
+    title.innerText = ` ${B_1.innerHTML}  : He won`;
+  }
+  if (
+    B_4.innerHTML === B_5.innerHTML &&
+    B_5.innerHTML === B_6.innerHTML &&
+    B_6.innerHTML !== ""
+  ) {
+    title.innerText = ` ${B_5.innerHTML}  : He won`;
+  }
+  if (
+    B_7.innerHTML === B_8.innerHTML &&
+    B_8.innerHTML === B_9.innerHTML &&
+    B_7.innerHTML !== ""
+  ) {
+    title.innerText = ` ${B_7.innerHTML}  : He won`;
+  }
+  if (
+    B_1.innerHTML === B_4.innerHTML &&
+    B_4.innerHTML === B_7.innerHTML &&
+    B_1.innerHTML !== ""
+  ) {
+    title.innerText = ` ${B_1.innerHTML}  : He won`;
+  }
+  if (
+    B_2.innerHTML === B_5.innerHTML &&
+    B_5.innerHTML === B_8.innerHTML &&
+    B_2.innerHTML !== ""
+  ) {
+    title.innerText = ` ${B_2.innerHTML}  : He won`;
+  }
+  if (
+    B_3.innerHTML === B_6.innerHTML &&
+    B_6.innerHTML === B_9.innerHTML &&
+    B_3.innerHTML !== ""
+  ) {
+    title.innerText = ` ${B_6.innerHTML}  : He won`;
+  }
+  if (
+    B_1.innerHTML === B_5.innerHTML &&
+    B_5.innerHTML === B_9.innerHTML &&
+    B_1.innerHTML !== ""
+  ) {
+    title.innerText = ` ${B_5.innerHTML}  : He won`;
+  }
+  if (
+    B_3.innerHTML === B_5.innerHTML &&
+    B_5.innerHTML === B_7.innerHTML &&
+    B_5.innerHTML !== ""
+  ) {
+    title.innerText = ` ${B_5.innerHTML}  : He won`;
+  }
+};
+
+const B_1 = document.querySelector(".z1");
+const B_2 = document.querySelector(".z2");
+const B_3 = document.querySelector(".z3");
+const B_4 = document.querySelector(".z4");
+const B_5 = document.querySelector(".z5");
+const B_6 = document.querySelector(".z6");
+const B_7 = document.querySelector(".z7");
+const B_8 = document.querySelector(".z8");
+const B_9 = document.querySelector(".z9");
