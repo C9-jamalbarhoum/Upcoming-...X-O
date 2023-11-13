@@ -1,0 +1,86 @@
+body {
+  background-color: #232323;
+  height: 100vh;
+}
+
+.Games {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Courier New", Courier, monospace;
+}
+.box_Games {
+  width: 326px;
+  height: 326px;
+  background-color: red;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: #232323;
+}
+
+.box_Games * {
+  width: 100px;
+  height: 100px;
+  background-color: rebeccapurple;
+  margin: 2px;
+  position: relative;
+  bottom: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 80px;
+  color: red;
+  text-align: center;
+}
+.box_Games *:hover {
+  background-color: black;
+}
+
+.title {
+  background-color: rebeccapurple;
+  padding: 0 50px;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+button {
+  background-color: rebeccapurple;
+  padding: 0 50px;
+  border: 2px solid red;
+  border-radius: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+button:hover {
+  cursor: pointer;
+  background-color: blueviolet;
+}
+
+.ss {
+  background-color: rebeccapurple;
+  padding: 5px 5px;
+  border: 2px solid red;
+  margin: 10px;
+  border-radius: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  font-weight: bold;
+}
+.aud {
+  width: 250px;
+  height: 25px;
+  border: 2px solid rgb(56, 4, 4);
+  border-radius: 20px;
+}
+.controls_audiol {
+  background-color: rebeccapurple;
+  padding: 5px 5px;
+  border: 2px solid red;
+  margin: 10px;
+  border-radius: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  font-weight: bold;
+}
