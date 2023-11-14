@@ -5,7 +5,7 @@
 .box {
   width: 50vh;
   height: 50vh;
-  background-color: aliceblue;
+  background-color: #252a34;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -34,8 +34,10 @@
   font-family: "Courier New", Courier, monospace;
 }
 .box * {
-  background-color: #252a34;
-  margin: 3px;
+  background-color: #0f131e;
+  border: 1px solid rgb(119, 110, 110);
+  border-radius: 30px;
+  margin: 1px;
   font-size: 60px;
   display: grid;
   justify-content: center;
@@ -50,7 +52,8 @@
 }
 
 .total {
-  color: rgb(4, 87, 252);
+  color: blue;
+  font-weight: bold;
   font-size: 20px;
   height: 28px;
   min-width: 100px;
@@ -61,13 +64,19 @@
   border-radius: 8px;
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
-  background-color: aliceblue;
+  background-color: rgb(26, 30, 33);
 }
 
-img {
+.img {
   width: 20%;
   margin-top: 20px;
   height: 50px;
+}
+.imW {
+  width: 100px;
+  border: solid 1px red;
+  border-radius: 20px;
+  display: none;
 }
 .Play {
   max-width: 20%;
@@ -96,7 +105,7 @@ img {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  background-color: #252a34;
+  background-color: #171b23;
   position: fixed;
   border-bottom: #020000 solid 2px;
 }
@@ -136,6 +145,25 @@ a {
   font-family: "Courier New", Courier, monospace;
   cursor: pointer;
 }
+.to {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
+}
+.vs {
+  display: flex;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+}
+.vs {
+  border: #252a34 red solid;
+
+  color: red;
+}
+.V {
+  color: blue;
+}
 
 @media (max-width: 600px) {
   .title {
@@ -146,8 +174,8 @@ a {
     font-size: 16px;
     font-weight: bold;
     font-family: sans-serif;
-    background-color: red;
-    border: 1px solid red;
+    background-color: rgb(2, 2, 120);
+    border: 1px solid rgb(0, 0, 130);
     border-radius: 12px;
     margin: 1px;
     font-family: "Courier New", Courier, monospace;
@@ -160,8 +188,8 @@ a {
     font-size: 14px;
     font-weight: bold;
     font-family: sans-serif;
-    background-color: red;
-    border: 1px solid red;
+    background-color: blue;
+    border: 1px solid blue;
     border-radius: 12px;
     margin: 20px;
     font-family: "Courier New", Courier, monospace;
@@ -174,6 +202,8 @@ a {
     padding: 10px 0;
     margin-bottom: 1px;
     font-size: 13px;
+    background-color: rgb(132, 2, 2);
+    border: #3a4354;
 
     border-radius: 12px;
     margin: 20px;
@@ -182,7 +212,7 @@ a {
     width: 35vh;
     height: 35vh;
     margin-top: 10px;
-    background-color: blue;
+    background-color: #252a34;
   }
   .ul {
     height: 50px;
@@ -191,12 +221,12 @@ a {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    background-color: #252a34;
+
     position: fixed;
     border-bottom: #020000 solid 2px;
   }
   li {
-    color: red;
+    color: blue;
     padding: 0 20px;
     list-style-type: none;
     font-size: 15px;
@@ -210,10 +240,42 @@ a {
     padding: 5px;
     margin: 10px;
 
-    border: #252a34 solid 1px;
+    border: #3a4354 solid 1px;
     border-radius: 8px;
     font-family: "Courier New", Courier, monospace;
     font-weight: bold;
-    background-color: rgb(174, 175, 175);
+    background-color: rgb(25, 24, 24);
+  }
+  .box * {
+    margin: 1px;
+    background-color: rgb(2, 2, 120);
+    border: rgb(95, 76, 76) 1px solid;
+    border-radius: 20px;
+  }
+  .body-box {
+    background-color: #252a34;
+  }
+  .to {
+    border-bottom: #001634 3px solid;
+  }
+  .vs {
+    border: #252a34 red solid;
+
+    color: red;
+  }
+  .V {
+    color: blue;
+  }
+}
+
+@media (max-width: 400px) {
+  li:nth-child(2) {
+    font-size: 20px;
+  }
+  li:nth-child(1) {
+    font-size: small;
+  }
+  li:nth-child(3) {
+    font-size: small;
   }
 }

@@ -25,9 +25,18 @@ play_but.addEventListener("click", () => {
   Create_box();
   song_touch();
 });
-
+const song_win_1 = () => {
+  let aud = new Audio(
+    ".//mixkit-arcade-game-complete-or-approved-mission-205.wav"
+  );
+  aud.play();
+};
+const song_x = () => {
+  let aud = new Audio(".//mixkit-arcade-video-game-bonus-2044.wav");
+  aud.play();
+};
 const song_touch = () => {
-  let aud = new Audio(".//mixkit-retro-game-notification-212.wav");
+  let aud = new Audio(".//mixkit-game-ball-tap-2073.wav");
   aud.play();
 };
 
@@ -36,7 +45,7 @@ const song_win = () => {
   aud.play();
 };
 const song_lose = () => {
-  let aud = new Audio("./mixkit-epic-orchestra-transition-2290.wav");
+  let aud = new Audio(".//mixkit-completion-of-a-level-2063.wav");
   aud.play();
 };
 
@@ -51,8 +60,13 @@ const Create_box = () => {
     box.append(dv);
 
     dv.addEventListener("click", (e) => {
-      if (!swi) {
+      if (dv.innerHTML !== "") {
+        song_x();
+      }
+      if (dv.innerHTML === "") {
         song_touch();
+      }
+      if (!swi) {
         Games(e, dv, all_box);
         compare(e, dv, all_box);
       }
@@ -141,8 +155,9 @@ const compare = (e, dv) => {
         setTimeout(() => {
           title.innerHTML = "X O Games";
           e.innerHTML = "";
-        }, 4000);
+        }, 1500);
       });
+      break;
     }
   }
 
@@ -154,8 +169,8 @@ const compare = (e, dv) => {
   });
 };
 
-const end = (box1, box2, box3, dv) => {
-  song_win();
+const end = (box1) => {
+  song_win_1();
   swi = true;
   const all_box = document.querySelectorAll(".sm");
   all_box.forEach(function (e) {
@@ -163,7 +178,7 @@ const end = (box1, box2, box3, dv) => {
       title.innerHTML = "X O Games";
       e.innerHTML = "";
       swi = false;
-    }, 3000);
+    }, 2000);
   });
 
   let O_ = document.querySelector(".o_");
@@ -174,19 +189,26 @@ const end = (box1, box2, box3, dv) => {
   if (box1 === "o") {
     O_.innerHTML += " :)";
   }
+  const gif = document.querySelector(".imW");
   if (X_.innerHTML === "= :) :) :)") {
+    gif.style.display = "inline";
+    song_win();
     setTimeout(() => {
       O_.innerHTML = "=";
       X_.innerHTML = "=";
       title.innerHTML = `X O Games`;
-    }, 3000);
+      gif.style.display = "none";
+    }, 4000);
   }
 
   if (O_.innerHTML === "= :) :) :)") {
+    song_win();
+    gif.style.display = "inline";
     setTimeout(() => {
       X_.innerHTML = "=";
       O_.innerHTML = "=";
+      gif.style.display = "none";
       title.innerHTML = `X O Games`;
-    }, 3000);
+    }, 4000);
   }
 };
