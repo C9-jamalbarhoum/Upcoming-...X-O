@@ -1,14 +1,16 @@
-// console.log(text.innerText = "x");
-const s = document.querySelector(".s");
 const body = document.querySelector("body");
 const bg = document.querySelector(".body-box");
 const box = document.createElement("div");
+const s = document.querySelector(".s");
 const total_x = document.querySelector(".total");
 const total_o = document.querySelector(".o");
 total_o.style.display = "none";
 total_x.style.color = "red";
 total_x.style.display = "none";
 box.classList.add("box");
+const resat_but = document.createElement("button");
+resat_but.innerHTML = "Restart";
+resat_but.classList.add("resat");
 
 const title = document.querySelector(".title");
 const all_box = document.querySelectorAll(".sm");
@@ -18,6 +20,7 @@ play_but.addEventListener("click", () => {
   play_but.style.display = "none";
   total_x.style.display = "";
   total_o.style.display = "";
+  bg.append(resat_but);
   s.append(box);
   Create_box();
   song_touch();
@@ -51,18 +54,15 @@ const Create_box = () => {
       if (!swi) {
         song_touch();
         Games(e, dv, all_box);
-        win(e, dv, all_box);
+        compare(e, dv, all_box);
       }
     });
   }
 };
-// Create_box();
 
 let bom = "x";
-let close = true;
-const Games = (e, dv) => {
-  const all_box = document.querySelectorAll(".sm");
 
+const Games = (e, dv) => {
   if (bom === "x" && e.target.innerHTML === "") {
     bom = "o";
     title.innerHTML = "o";
@@ -75,13 +75,12 @@ const Games = (e, dv) => {
   }
 };
 
-const win = (e, dv) => {
+const compare = (e, dv) => {
   const all_box = document.querySelectorAll(".sm");
-  // console.log(all_box[0].innerHTML);
 
   const arr = [
-    [0, 1, 2], //  0 0 // 1 1 // 2 2
-    [3, 4, 5], // 0 2 // 1 1 // 2 0
+    [0, 1, 2],
+    [3, 4, 5],
     [6, 7, 8],
   ];
 
@@ -146,6 +145,13 @@ const win = (e, dv) => {
       });
     }
   }
+
+  resat_but.addEventListener("click", (e) => {
+    all_box.forEach((e) => {
+      e.innerHTML = "";
+      title.innerHTML = "X O Games";
+    });
+  });
 };
 
 const end = (box1, box2, box3, dv) => {

@@ -20,11 +20,11 @@
   background-color: #252a34;
 }
 .title {
-  width: 20%;
+  min-width: 20%;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px;
   margin-bottom: 1px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
   font-family: sans-serif;
   background-color: red;
@@ -70,11 +70,12 @@ img {
   height: 50px;
 }
 .Play {
-  width: 10%;
+  max-width: 20%;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
   margin-bottom: 1px;
-  font-size: 30px;
+  font-size: 20px;
+  padding: 20px;
   font-weight: bold;
   font-family: sans-serif;
   background-color: red;
@@ -121,4 +122,98 @@ li:nth-child(2) {
 }
 a {
   text-decoration: none;
+}
+.resat {
+  width: 10%;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 1px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: red;
+  border: 1px solid red;
+  border-radius: 12px;
+  font-family: "Courier New", Courier, monospace;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .title {
+    width: 20%;
+
+    padding: 10px 0;
+    margin-bottom: 1px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: sans-serif;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 12px;
+    margin: 1px;
+    font-family: "Courier New", Courier, monospace;
+  }
+  .Play {
+    width: 15%;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 1px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: sans-serif;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 12px;
+    margin: 20px;
+    font-family: "Courier New", Courier, monospace;
+    cursor: pointer;
+  }
+
+  .resat {
+    width: 15%;
+    text-align: center;
+    padding: 10px 0;
+    margin-bottom: 1px;
+    font-size: 13px;
+
+    border-radius: 12px;
+    margin: 20px;
+  }
+  .box {
+    width: 35vh;
+    height: 35vh;
+    margin-top: 10px;
+    background-color: blue;
+  }
+  .ul {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #252a34;
+    position: fixed;
+    border-bottom: #020000 solid 2px;
+  }
+  li {
+    color: red;
+    padding: 0 20px;
+    list-style-type: none;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  .total {
+    color: rgb(4, 87, 252);
+    font-size: 15px;
+    height: 20px;
+    min-width: 70px;
+    padding: 5px;
+    margin: 10px;
+
+    border: #252a34 solid 1px;
+    border-radius: 8px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    background-color: rgb(174, 175, 175);
+  }
 }
