@@ -1,10 +1,41 @@
 // console.log(text.innerText = "x");
-
+const s = document.querySelector(".s");
 const body = document.querySelector("body");
 const bg = document.querySelector(".body-box");
-const box = document.querySelector(".box");
+const box = document.createElement("div");
+const total_x = document.querySelector(".total");
+const total_o = document.querySelector(".o");
+total_o.style.display = "none";
+total_x.style.color = "red";
+total_x.style.display = "none";
+box.classList.add("box");
+
 const title = document.querySelector(".title");
 const all_box = document.querySelectorAll(".sm");
+const play_but = document.querySelector(".Play");
+
+play_but.addEventListener("click", () => {
+  play_but.style.display = "none";
+  total_x.style.display = "";
+  total_o.style.display = "";
+  s.append(box);
+  Create_box();
+  song_touch();
+});
+
+const song_touch = () => {
+  let aud = new Audio(".//mixkit-retro-game-notification-212.wav");
+  aud.play();
+};
+
+const song_win = () => {
+  let aud = new Audio(".//mixkit-trumpet-fanfare-2293.wav");
+  aud.play();
+};
+const song_lose = () => {
+  let aud = new Audio("./mixkit-epic-orchestra-transition-2290.wav");
+  aud.play();
+};
 
 let swi = false;
 
@@ -18,13 +49,14 @@ const Create_box = () => {
 
     dv.addEventListener("click", (e) => {
       if (!swi) {
+        song_touch();
         Games(e, dv, all_box);
         win(e, dv, all_box);
       }
     });
   }
 };
-Create_box();
+// Create_box();
 
 let bom = "x";
 let close = true;
@@ -106,16 +138,18 @@ const win = (e, dv) => {
       title.innerHTML = `Draw`;
       swi = false;
       all_box.forEach((e) => {
+        song_lose();
         setTimeout(() => {
           title.innerHTML = "X O Games";
           e.innerHTML = "";
-        }, 1000);
+        }, 4000);
       });
     }
   }
 };
 
 const end = (box1, box2, box3, dv) => {
+  song_win();
   swi = true;
   const all_box = document.querySelectorAll(".sm");
   all_box.forEach(function (e) {
@@ -123,9 +157,9 @@ const end = (box1, box2, box3, dv) => {
       title.innerHTML = "X O Games";
       e.innerHTML = "";
       swi = false;
-    }, 1500);
+    }, 3000);
   });
-  debugger;
+
   let O_ = document.querySelector(".o_");
   let X_ = document.querySelector(".x_");
   if (box1 === "x") {
@@ -139,7 +173,7 @@ const end = (box1, box2, box3, dv) => {
       O_.innerHTML = "=";
       X_.innerHTML = "=";
       title.innerHTML = `X O Games`;
-    }, 1500);
+    }, 3000);
   }
 
   if (O_.innerHTML === "= :) :) :)") {
@@ -147,6 +181,6 @@ const end = (box1, box2, box3, dv) => {
       X_.innerHTML = "=";
       O_.innerHTML = "=";
       title.innerHTML = `X O Games`;
-    }, 2000);
+    }, 3000);
   }
 };
