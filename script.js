@@ -169,6 +169,11 @@ const compare = (e, dv) => {
   });
 };
 
+console.log(localStorage);
+
+let xCount = 0;
+let oCount = 0;
+
 const end = (box1) => {
   song_win_1();
   swi = true;
@@ -191,24 +196,59 @@ const end = (box1) => {
   }
   const gif = document.querySelector(".imW");
   if (X_.innerHTML === "= :) :) :)") {
+    const local_x = document.querySelector(".locx");
+
+    xCount++;
+    localStorage.setItem("xCount", xCount);
+
+    local_x.innerHTML = `X = ${xCount}`;
+
     gif.style.display = "inline";
     song_win();
     setTimeout(() => {
       O_.innerHTML = "=";
       X_.innerHTML = "=";
       title.innerHTML = `X O Games`;
+
       gif.style.display = "none";
     }, 4000);
   }
 
   if (O_.innerHTML === "= :) :) :)") {
+    const local_o = document.querySelector(".loco");
+
+    oCount++;
+    localStorage.setItem("oCount", oCount);
+    local_o.innerHTML = `O = ${oCount}`;
+
     song_win();
+
     gif.style.display = "inline";
     setTimeout(() => {
       X_.innerHTML = "=";
       O_.innerHTML = "=";
+
       gif.style.display = "none";
       title.innerHTML = `X O Games`;
     }, 4000);
   }
 };
+if (location) {
+  const local_o = document.querySelector(".loco");
+  const local_x = document.querySelector(".locx");
+
+  oCount = localStorage.getItem("oCount") * 1;
+  xCount = localStorage.getItem("xCount") * 1;
+
+  local_o.innerHTML = `O = ${localStorage.getItem("oCount") * 1}`;
+  local_x.innerHTML = `X = ${localStorage.getItem("xCount") * 1}`;
+}
+resat_but.addEventListener("click", () => {
+  const local_o = document.querySelector(".loco");
+  const local_x = document.querySelector(".locx");
+  localStorage.clear();
+  local_o.innerHTML = ` O = ${0}`;
+  local_x.innerHTML = ` X = ${0}`;
+  xCount = 0;
+  oCount = 0;
+});
